@@ -1,10 +1,10 @@
 /**
  * Don't show until JavaScript is instantiated
  */
-{{component-name}}:not(:defined) {
+light-box:not(:defined) {
 	display: none;
 }
 
-{{component-name}} {
+light-box {
     background-color: red;
 }

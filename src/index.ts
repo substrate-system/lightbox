@@ -4,7 +4,7 @@ const debug = createDebug()
 // for docuement.querySelector
 declare global {
     interface HTMLElementTagNameMap {
-        '{{component-name}}': Example
+        'light-box': Example
     }
 }
 
@@ -94,5 +94,5 @@ export class Example extends HTMLElement {
 }
 
 if ('customElements' in window) {
-    customElements.define('{{component-name}}', Example)
+    customElements.define('light-box', Example)
 }
