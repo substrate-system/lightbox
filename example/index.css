@@ -1,0 +1,55 @@
+@import url("@substrate-system/a11y");
+@import url("@substrate-system/css-normalize");
+
+:root {
+    color-scheme: light;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+button {
+    cursor: pointer;
+}
+
+html.reduce-fouce {
+    opacity: 0;
+}
+
+main {
+    margin: 2rem auto;
+    max-width: 60rem;
+}
+
+header {
+    margin-bottom: 2rem;
+
+    & h1 {
+        font-size: clamp(2.1rem, 5vw, 3rem);
+        margin-bottom: 0.5rem;
+    }
+}
+
+.demo-feed {
+    max-width: 60rem;
+    margin: 0 auto;
+    margin-top: 4rem;
+    display: grid;
+    grid-auto-rows: 300px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+    align-items: stretch;
+    padding-bottom: 0.75rem;
+
+    & img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        box-shadow: 0 10px 26px #0000002e;
+    }
+}
+
+@media (max-width: 720px) {
+    .demo-feed {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        grid-auto-rows: 220px;
+    }
+}

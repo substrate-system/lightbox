@@ -1,10 +1,181 @@
-/**
- * Don't show until JavaScript is instantiated
- */
-light-box:not(:defined) {
-	display: none;
+@import url("@substrate-system/a11y");
+
+@supports (scrollbar-gutter: stable) {
+    .scroll-lock {
+        scrollbar-gutter: var(--scroll-lock-gutter)!important;
+    }
+
+    .scroll-lock body {
+        overflow: hidden!important;
+    }
 }
 
-light-box {
-    background-color: red;
+@supports not (scrollbar-gutter: stable) {
+    .scroll-lock body {
+        padding-right: var(--scroll-lock-size)!important;
+        overflow: hidden!important;
+    }
+}
+
+light-box img[data-light-box-thumb] {
+    cursor: zoom-in;
+    outline: 2px solid transparent;
+    outline-offset: 3px;
+    transition: all 0.2s;
+
+    &:focus {
+        outline: 2px solid black;
+    }
+}
+
+.light-box-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.light-box-overlay.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.light-box-backdrop {
+    position: absolute;
+    inset: 0;
+    background: #0a0a0cdb;
+    opacity: 0;
+    transition: opacity 280ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.light-box-overlay.is-open .light-box-backdrop {
+    opacity: 1;
+}
+
+.light-box-stage {
+    position: absolute;
+    inset: 0;
+}
+
+.light-box-image {
+    position: fixed;
+    margin: 0;
+    object-fit: cover;
+    box-shadow:
+        0 30px 64px #00000073,
+        0 6px 22px #00000040;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.light-box-control,
+.light-box-close {
+    position: absolute;
+    border: 0;
+    padding: 0;
+    display: grid;
+    place-items: center;
+    color: #fffffff2;
+    background: #00000038;
+    cursor: pointer;
+    line-height: 1;
+    transition: background-color 120ms ease;
+}
+
+.light-box-control {
+    top: 50%;
+    width: 48px;
+    margin-top: -32px;
+    font-size: 42px;
+    border-radius: 12px;
+
+    &:hover {
+        background: #00000057;
+    }
+
+    &:focus-visible {
+        outline: 2px solid #d5d9ff;
+        outline-offset: 2px;
+    }
+
+    & > span {
+        height: 50px;
+    }
+}
+
+.light-box-prev {
+    left: 18px;
+}
+
+.light-box-next {
+    right: 18px;
+}
+
+.light-box-close {
+    top: 18px;
+    right: 18px;
+    width: 48px;
+    height: 48px;
+    font-size: 38px;
+    border-radius: 24px;
+
+    &:hover {
+        background: #00000057;
+    }
+
+    &:focus-visible {
+        outline: 2px solid #d5d9ff;
+        outline-offset: 2px;
+    }
+
+}
+
+.light-box-counter {
+    position: absolute;
+    top: 14px;
+    left: 20px;
+    margin: 0;
+    font: 400 28px/1.2 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+        'Liberation Mono', 'Courier New', monospace;
+    letter-spacing: 0.02em;
+    color: #ffffffeb;
+}
+
+@media (max-width: 720px) {
+    .light-box-control {
+        width: 42px;
+        height: 52px;
+        margin-top: -26px;
+        font-size: 34px;
+        border-radius: 10px;
+    }
+
+    .light-box-prev {
+        left: 10px;
+    }
+
+    .light-box-next {
+        right: 10px;
+    }
+
+    .light-box-close {
+        top: 10px;
+        right: 10px;
+        width: 42px;
+        height: 42px;
+        font-size: 32px;
+    }
+
+    .light-box-counter {
+        top: 10px;
+        left: 12px;
+        font-size: 24px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .light-box-backdrop {
+        transition: none;
+    }
 }

@@ -1,12 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="reduce-fouce">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Example</title>
+    <title>Lightbox Demo</title>
+    <noscript>
+        <style>
+            html.reduce-fouce {
+                opacity: 1 !important;
+            }
+        </style>
+    </noscript>
 </head>
+
 <body>
-    <light-box></light-box>
+    <main>
+        <header class="demo-head">
+            <h1>Lightbox</h1>
+            <p>
+                Thumbnail row demo. Click any image to open the lightbox.
+            </p>
+        </header>
+
+        <light-box class="demo-feed">
+            <div>
+                <img src="./100.jpg" alt="Bullet cat" />
+            </div>
+            <div>
+                <img src="./20190814_102301.jpg" alt="llamas" />
+            </div>
+            <div>
+                <img src="./cinnamon-roll.jpg" alt="Cinnamon roll cat" />
+            </div>
+            <div>
+                <img src="./raccoons.jpg" alt="3 raccoons looking out of a storm drain" />
+            </div>
+        </light-box>
+    </main>
+
     <script type="module" src="./index.ts"></script>
-  </body>
+</body>
 </html>
