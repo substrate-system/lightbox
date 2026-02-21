@@ -96,19 +96,19 @@ import '@substrate-system/lightbox'
 </light-box>
 ```
 
-### pre-built
+## pre-built
 
 This package exposes minified JS and CSS files too. Copy them to a location
 that is accessible to your web server, then link to them in HTML.
 
-#### copy
+### copy
 
 ```sh
 cp ./node_modules/@substrate-system/lightbox/dist/index.min.js ./public/light-box.min.js
 cp ./node_modules/@substrate-system/lightbox/dist/style.min.css ./public/light-box.css
 ```
 
-#### HTML
+### HTML
 
 ```html
 <head>
@@ -118,4 +118,16 @@ cp ./node_modules/@substrate-system/lightbox/dist/style.min.css ./public/light-b
     <!-- ... -->
     <script type="module" src="./light-box.min.js"></script>
 </body>
+```
+
+## Test
+
+```sh
+npm test
+```
+
+### a11y Tests
+
+```sh
+npm run test:a11y
 ```

@@ -29,3 +29,4 @@ jobs:
     - name: Run tap tests
       run: |
         xvfb-run --server-args="-screen 0 1920x1080x24" npm test
+        npm run test:a11y
