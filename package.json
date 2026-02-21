@@ -1,9 +1,26 @@
 {
   "name": "@substrate-system/lightbox",
-  "private": true,
-  "type": "module",
   "version": "0.0.0",
+  "description": "Lightbox web component",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./css": "./dist/index.css",
+    "./min/css": "./dist/index.min.css",
+    "./min/*": {
+      "import": "./dist/*.min.js",
+      "require": "./dist/*.min.cjs"
+    },
+    "./*": {
+      "import": "./dist/*.js",
+      "require": "./dist/*.cjs"
+    }
+  },
   "main": "dist/index.js",
+  "types": "./dist/index.d.ts",
   "files": [
     "./dist/*"
   ],
@@ -25,21 +42,9 @@
     "postversion": "git push --follow-tags && npm publish",
     "prepublishOnly": "npm run build"
   },
-  "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
-    },
-    "./css": "./dist/index.css",
-    "./min/css": "./dist/index.min.css",
-    "./min/*": {
-      "import": "./dist/*.min.js",
-      "require": "./dist/*.min.cjs"
-    },
-    "./*": {
-      "import": "./dist/*.js",
-      "require": "./dist/*.cjs"
-    }
+  "dependencies": {
+    "@substrate-system/scroll-lock": "^0.0.4",
+    "@substrate-system/web-component": "^0.0.46"
   },
   "devDependencies": {
     "@substrate-system/a11y": "^0.0.17",
@@ -66,10 +71,19 @@
     "typescript": "^5.7.3",
     "vite": "^7.3.0"
   },
-  "author": "nichoth <nichoth@nichoth.com> (https://nichoth.com)",
+  "keywords": [
+    "lightbox",
+    "web",
+    "component"
+  ],
+  "homepage": "https://github.com/substrate-system/lightbox",
+  "bugs": {
+    "url": "https://github.com/substrate-system/lightbox/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/substrate-system/lightbox.git"
+  },
   "license": "SEE LICENSE IN LICENSE",
-  "dependencies": {
-    "@substrate-system/scroll-lock": "^0.0.4",
-    "@substrate-system/web-component": "^0.0.46"
-  }
+  "author": "nichoth <nichoth@nichoth.com> (https://nichoth.com)"
 }
