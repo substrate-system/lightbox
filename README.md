@@ -26,7 +26,11 @@ Lightbox web component.
 - [Example](#example)
   * [JS](#js)
   * [HTML](#html)
-  * [pre-built](#pre-built)
+- [pre-built](#pre-built)
+  * [copy](#copy)
+  * [HTML](#html-1)
+- [Test](#test)
+  * [a11y Tests](#a11y-tests)
 
 <!-- tocstop -->
 
